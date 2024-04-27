@@ -23,6 +23,18 @@ const router = createBrowserRouter([
                 path: "/register",
                 element: <Register></Register>
             },
+            {
+                path: "/allArt",
+                element: <div>allArt</div>
+            },
+            {
+                path: "/addCraft",
+                element: <div>addCraft</div>
+            },
+            {
+                path: "/myArt",
+                element: <div>myArt</div>
+            },
         ]
     },
 ]);

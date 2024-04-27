@@ -18,7 +18,6 @@ const Navbar = () => {
         <li className="p-2 rounded-lg"><NavLink to="/allArt">All Art & craft Items</NavLink></li>
         <li className="p-2 rounded-lg"><NavLink to="/addCraft">Add Craft Item</NavLink></li>
         <li className="p-2 rounded-lg"><NavLink to="/myArt">My Art & Craft List</NavLink></li>
-        <li className="p-2 rounded-lg"><NavLink to="/error">Error Page</NavLink></li>
     </>
 
     return (

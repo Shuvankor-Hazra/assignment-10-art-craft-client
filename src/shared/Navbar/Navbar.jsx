@@ -27,14 +27,14 @@ const Navbar = () => {
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
-                    <ul tabIndex={0} className="p-3 dropdown-content mt-3 z-[10] shadow bg-white border-4 rounded-box w-60">
+                    <ul tabIndex={0} className="p-3 dropdown-content mt-3 z-[10] shadow bg-white border-4 rounded-box w-60 text-gray-500">
                         {navLinks}
                     </ul>
                 </div>
                 <Link to='/' className="btn btn-ghost text-2xl lg:text-4xl font-bold gap-0 p-0 hover:bg-white"><span className="text-2xl lg:text-4xl font-extrabold">Art&Craft</span>{"'"}s</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="flex gap-2 px-1 text-xl font-bold">
+                <ul className="flex gap-2 px-1 text-xl font-bold text-gray-500">
                     {navLinks}
                 </ul>
             </div>

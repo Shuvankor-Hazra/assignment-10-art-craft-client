@@ -6,7 +6,7 @@ const CraftDetails = () => {
 
     const crafts = useLoaderData();
 
-    const { photo, itemName, price, stockStatus, subcategoryName } = crafts;
+    const { photo, itemName, price, stockStatus, subcategoryName,shortDescription ,processingTime,rating,customization} = crafts;
 
     return (
         <div>
@@ -23,11 +23,13 @@ const CraftDetails = () => {
                 <div className="lg:w-1/2 card-body px-3 lg:px-6">
                     <div className="space-y-5">
                         <p><span className="md:text-lg font-semibold">Item Name: </span>{itemName}</p>
-                        <p><span className="md:text-lg font-semibold">Price: </span>{price}</p>
-
                         <p><span className="md:text-lg font-semibold">Subcategory Name: </span> {subcategoryName}</p>
-
+                        <p><span className="md:text-lg font-semibold">Price: </span>{price}</p>
                         <p><span className="md:text-lg font-semibold">Stock Status: </span> {stockStatus}</p>
+                        <p><span className="md:text-lg font-semibold">Short Description: </span> {shortDescription}</p>
+                        <p><span className="md:text-lg font-semibold">Processing Time: </span> {processingTime}</p>
+                        <p><span className="md:text-lg font-semibold">Rating: </span> {rating}</p>
+                        <p><span className="md:text-lg font-semibold">Customization: </span> {customization}</p>
                     </div>
                 </div>
             </div>

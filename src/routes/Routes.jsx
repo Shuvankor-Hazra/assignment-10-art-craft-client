@@ -4,6 +4,8 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import PrivateRoutes from "./PrivateRoutes";
+import AddCraft from "../pages/AddCraft/AddCraft";
 
 const router = createBrowserRouter([
     {
@@ -29,11 +31,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/addCraft",
-                element: <div>addCraft</div>
+                element: <PrivateRoutes><AddCraft></AddCraft></PrivateRoutes>
             },
             {
                 path: "/myArt",
-                element: <div>myArt</div>
+                element: <PrivateRoutes><div>myArt</div></PrivateRoutes>
             },
         ]
     },

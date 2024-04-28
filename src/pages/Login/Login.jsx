@@ -3,8 +3,13 @@ import { AiOutlineLogin } from "react-icons/ai";
 import useAuth from "../../hooks/useAuth";
 import GithubLogin from "./GithubLogin";
 import GoogleLogin from "./GoogleLogin";
+import { Toaster } from "react-hot-toast";
+import { useState } from "react";
+import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 
 const Login = () => {
+
+    const [showPassword, setShowPassword] = useState(false);
 
     const { signInUser } = useAuth();
 
@@ -29,13 +34,13 @@ const Login = () => {
     }
 
     return (
-        <div className="hero min-h-fit bg-base-200 md:p-10">
+        <div className="hero min-h-fit bg-base-200 md:p-10 mb-12 rounded-xl">
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="text-center lg:text-left">
+                <div className="text-center lg:text-right">
                     <h1 className="text-3xl md:text-5xl font-bold">Login here!</h1>
                     <p className="py-6">Securely access your account, safeguarding your data while unlocking a world of personalized services, seamless transactions, and tailored experiences.</p>
                 </div>
-                <div className="card shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
+                <div className="card shrink-0 w-full lg:w-2/3 shadow-2xl bg-base-100">
                     <form onSubmit={handleLogin} className="card-body pb-0">
                         <div className="form-control">
                             <label className="label">
@@ -51,10 +56,11 @@ const Login = () => {
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
+                                <span className="text-xl relative top-10 right-3 cursor-pointer" onClick={() => setShowPassword(!showPassword)}>{showPassword ? <IoIosEye /> : <IoIosEyeOff />}</span>
                             </label>
                             <input
                                 name="password"
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 placeholder="password"
                                 className="input input-bordered"
                                 required />
@@ -70,6 +76,7 @@ const Login = () => {
                     </form>
                     <GoogleLogin></GoogleLogin>
                     <GithubLogin></GithubLogin>
+                    <Toaster></Toaster>
                 </div>
             </div>
         </div>

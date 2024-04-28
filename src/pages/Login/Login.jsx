@@ -65,9 +65,9 @@ const Login = () => {
                                 className="input input-bordered"
                                 required />
                         </div>
-                        <div className="">
+                        <div>
                             <div className="form-control my-6">
-                                <button className="btn "><AiOutlineLogin className="text-black text-2xl" />Login</button>
+                                <button className="btn bg-[#D2B48C]"><AiOutlineLogin className="text-black text-2xl" />Login</button>
                             </div>
                         </div>
                         <div className="text-center">

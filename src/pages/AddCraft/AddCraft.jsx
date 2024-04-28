@@ -1,26 +1,34 @@
 import Swal from 'sweetalert2'
+import useAuth from '../../hooks/useAuth';
 
 const AddCraft = () => {
+
+    const { user } = useAuth();
+    console.log(user);
 
     const handleAddCraft = (e) => {
         e.preventDefault();
         const form = e.target;
-        const name = form.name.value;
-        const quantity = form.quantity.value;
-        const supplier = form.supplier.value;
-        const taste = form.taste.value;
-        const category = form.category.value;
-        const details = form.details.value;
+        const itemName = form.item_name.value;
         const photo = form.photo.value;
-        const newCoffee = { name, quantity, supplier, taste, category, details, photo };
-        // console.log(newCoffee);
+        const subcategoryName = form.subcategory_name.value;
+        const shortDescription = form.short_description.value;
+        const price = form.price.value;
+        const processingTime = form.processing_time.value;
+        const rating = form.rating.value;
+        const customization = form.customization.value;
+        const stockStatus = form.stockStatus.value;
+        const userEmail = form.user_email.value;
+        const userName = form.user_name.value;
+        const newCraft = { itemName: itemName, photo: photo, subcategoryName: subcategoryName, shortDescription: shortDescription, price: price, processingTime: processingTime, rating: rating, customization: customization, stockStatus: stockStatus, userEmail: userEmail, userName: userName };
+        console.log(newCraft);
 
-        fetch('http://localhost:5000/coffee', {
+        fetch('http://localhost:5000/crafts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newCoffee)
+            body: JSON.stringify(newCraft)
         })
             .then((res) => res.json())
             .then((data) => {
@@ -29,7 +37,7 @@ const AddCraft = () => {
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Coffee added successfully',
+                        text: 'Craft added successfully',
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
@@ -38,8 +46,8 @@ const AddCraft = () => {
     }
 
     return (
-        <div className="md:w-2/3 mx-auto bg-[#F4F3F0] my-20 p-10 rounded-xl">
-            <h1 className='text-4xl font-bold text-center py-3'>Add New Craft</h1>
+        <div className=" mx-auto bg-[#F4F3F0] mb-10 md:mb-20 p-5 md:p-10 rounded-xl">
+            <h1 className='text-2xl md:text-4xl font-bold text-center pb-3'>Add New Craft</h1>
 
             <form onSubmit={handleAddCraft}>
                 {/* 1111111111111111111111111111111 */}
@@ -97,7 +105,7 @@ const AddCraft = () => {
                         <div className="label">
                             <span className="label-text">Rating</span>
                         </div>
-                        <select className="select select-bordered">
+                        <select name='rating' className="select select-bordered">
                             <option disabled selected>Rating</option>
                             <option>1</option>
                             <option>2</option>
@@ -111,7 +119,7 @@ const AddCraft = () => {
                         <div className="label">
                             <span className="label-text">Customization</span>
                         </div>
-                        <select className="select select-bordered">
+                        <select name='customization' className="select select-bordered">
                             <option disabled selected>Customization</option>
                             <option>Yes</option>
                             <option>No</option>
@@ -122,7 +130,7 @@ const AddCraft = () => {
                         <div className="label">
                             <span className="label-text">Stock Status</span>
                         </div>
-                        <select className="select select-bordered">
+                        <select name='stockStatus' className="select select-bordered">
                             <option disabled selected>Stock Status</option>
                             <option>In stock</option>
                             <option>Made to Order</option>
@@ -135,14 +143,14 @@ const AddCraft = () => {
                         <label className="label">
                             <span className="label-text">User Email</span>
                         </label>
-                        <input type="email" name="user_email" placeholder="User Email" className="input input-bordered" readOnly/>
+                        <input type="email" defaultValue={user.email} name="user_email" placeholder="User Email" className="input input-bordered" readOnly />
                     </div>
 
                     <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text">User Name</span>
                         </label>
-                        <input type="text" name="user_name" placeholder="User Name Time" className="input input-bordered" readOnly/>
+                        <input type="text" defaultValue={user.displayName} name="user_name" placeholder="User Name Time" className="input input-bordered" readOnly />
                     </div>
                 </div>
                 <div className="form-control mt-6">

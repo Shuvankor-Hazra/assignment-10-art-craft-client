@@ -7,7 +7,7 @@ const GithubLogin = () => {
 
     return (
         <div className="form-control my-6 px-8">
-            <button onClick={githubLogin} className="btn "><FaGithub className="text-black text-xl" />Open with GitHub</button>
+            <button onClick={githubLogin} className="btn bg-[#D2B48C]"><FaGithub className="text-black text-xl" />Open with GitHub</button>
         </div>
     );
 };

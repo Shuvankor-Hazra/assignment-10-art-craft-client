@@ -46,7 +46,7 @@ const Slider = () => {
                             <h2 className='font-semibold lg:text-xl py-1' data-swiper-parallax="-300">Creating unique vessels, sculptures, and tiles, ceramics and pottery blend artistry with craftsmanship, shaping clay into timeless expressions.</h2>
                         </div>
                         <div className='space-x-6'>
-                            <button data-swiper-parallax="-500" className='btn btn-sm md:btn-md md:font-bold bg-white w-fit md:px-12'>About Us</button>
+                            <button data-swiper-parallax="-500" className='btn btn-sm md:btn-md md:font-bold bg-[#D2B48C] w-fit md:px-12'>About Us</button>
                             <button data-swiper-parallax="-500" className='btn btn-outline text-white btn-sm md:btn-md md:font-bold w-fit md:px-12'>Learn More</button>
                         </div>
                     </div>
@@ -67,7 +67,7 @@ const Slider = () => {
                             <h2 className='font-semibold lg:text-xl py-1' data-swiper-parallax="-300">Creating unique vessels, sculptures, and tiles, ceramics and pottery blend artistry with craftsmanship, shaping clay into timeless expressions.</h2>
                         </div>
                         <div className='space-x-6 '>
-                            <button data-swiper-parallax="-500" className='btn btn-sm md:btn-md md:font-bold bg-white w-fit md:px-12'>About Us</button>
+                            <button data-swiper-parallax="-500" className='btn btn-sm md:btn-md md:font-bold bg-[#D2B48C] w-fit md:px-12'>About Us</button>
                             <button data-swiper-parallax="-500" className='btn btn-outline btn-sm md:btn-md md:font-bold w-fit md:px-12 text-white'>Learn More</button>
                         </div>
                     </div>
@@ -88,7 +88,7 @@ const Slider = () => {
                             <h2 className='font-semibold lg:text-xl py-1' data-swiper-parallax="-300">Creating unique vessels, sculptures, and tiles, ceramics and pottery blend artistry with craftsmanship, shaping clay into timeless expressions.</h2>
                         </div>
                         <div className='space-x-6 '>
-                            <button data-swiper-parallax="-500" className='btn btn-sm md:btn-md md:font-bold bg-white w-fit md:px-12'>About Us</button>
+                            <button data-swiper-parallax="-500" className='btn btn-sm md:btn-md md:font-bold bg-[#D2B48C] w-fit md:px-12'>About Us</button>
                             <button data-swiper-parallax="-500" className='btn btn-outline btn-sm md:btn-md md:font-bold w-fit md:px-12 text-white'>Learn More</button>
                         </div>
                     </div>

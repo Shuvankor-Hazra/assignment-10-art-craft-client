@@ -7,7 +7,7 @@ const GoogleLogin = () => {
 
     return (
         <div className="form-control mt-6 px-8">
-            <button onClick={googleLogin} className="btn "><FaGoogle className="text-black text-xl" />Open with Google</button>
+            <button onClick={googleLogin} className="btn bg-[#D2B48C]"><FaGoogle className="text-black text-xl" />Open with Google</button>
         </div>
     );
 };

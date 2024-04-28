@@ -51,7 +51,7 @@ const Navbar = () => {
                                     </div>
                                 </div>
                             </div>
-                            <Link onClick={handleSIgnOut} className="btn btn-sm md:btn-md md:px-10 md:text-lg md:font-bold">Log Out</Link>
+                            <Link onClick={handleSIgnOut} className="btn bg-[#D2B48C] btn-sm md:btn-md md:px-10 md:text-lg md:font-bold">Log Out</Link>
                         </div> :
                         
                         <div className="flex items-center gap-3">
@@ -62,7 +62,7 @@ const Navbar = () => {
                                     </div>
                                 </div>
                             </div>
-                            <Link to="/login" className="btn btn-sm md:btn-md  md:px-10 md:text-lg md:font-bold">Log In</Link>
+                            <Link to="/login" className="btn bg-[#D2B48C] btn-sm md:btn-md  md:px-10 md:text-lg md:font-bold">Log In</Link>
                         </div>
                 }
 

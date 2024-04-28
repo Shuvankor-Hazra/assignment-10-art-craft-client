@@ -16,8 +16,8 @@ const About = () => {
                 <p className="md:text-xl md:w-2/3 mx-auto py-3 text-gray-500">Expressing imagination through diverse mediums, fostering creativity, innovation, and personal fulfillment in handmade creations.</p>
             </div>
             <div className="lg:flex items-center lg:mb-14 bg-base-300 my-10 rounded-xl">
-                <figure className="lg:w-1/2 p-6">
-                    <img className="rounded-xl" src={aboutImg} alt="About" />
+                <figure className="lg:w-1/2  mask mask-hexagon-2">
+                    <img className="rounded-xl p-6" src={aboutImg} alt="About" />
                 </figure>
                 <div className="lg:w-1/2 card-body px-3 lg:px-6">
                     <h2 className="text-xl md:text-3xl font-bold">From Blueprint To Reality, We Deliver</h2>

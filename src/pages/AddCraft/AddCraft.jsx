@@ -1,5 +1,6 @@
 import Swal from 'sweetalert2'
 import useAuth from '../../hooks/useAuth';
+import { Helmet } from 'react-helmet';
 
 const AddCraft = () => {
 
@@ -11,7 +12,7 @@ const AddCraft = () => {
         const form = e.target;
         const itemName = form.item_name.value;
         const photo = form.photo.value;
-        const subcategoryName = form.subcategory_name.value;
+        const subcategoryName = form.subcategory_Name.value;
         const shortDescription = form.short_description.value;
         const price = form.price.value;
         const processingTime = form.processing_time.value;
@@ -23,7 +24,7 @@ const AddCraft = () => {
         const newCraft = { itemName: itemName, photo: photo, subcategoryName: subcategoryName, shortDescription: shortDescription, price: price, processingTime: processingTime, rating: rating, customization: customization, stockStatus: stockStatus, userEmail: userEmail, userName: userName };
         console.log(newCraft);
 
-        fetch('http://localhost:5000/crafts', {
+        fetch('https://assignment-10-art-craft-server-f1u5cjdxy.vercel.app/crafts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -47,10 +48,13 @@ const AddCraft = () => {
 
     return (
         <div className=" mx-auto bg-[#F4F3F0] mb-10 md:mb-20 p-5 md:p-10 rounded-xl">
+            <Helmet>
+                <title>Art & craft | Add craft</title>
+            </Helmet>
             <h1 className='text-2xl md:text-4xl font-bold text-center pb-3'>Add New Craft</h1>
 
             <form onSubmit={handleAddCraft}>
-                {/* 1111111111111111111111111111111 */}
+                {/* section - 1 */}
                 <div className="md:flex md:gap-5 md:py-3">
                     <div className="form-control md:w-1/2">
                         <label className="label">
@@ -66,13 +70,13 @@ const AddCraft = () => {
                         <input type="text" name="photo" placeholder="Enter Photo URL" className="input input-bordered" required />
                     </div>
                 </div>
-                {/* 222222222222222222222222222222 */}
+                {/* section - 2 */}
                 <div className="md:flex md:gap-5 md:py-3">
                     <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text">Subcategory Name</span>
                         </label>
-                        <input type="text" name="subcategory_name" placeholder="Enter Subcategory Name" className="input input-bordered" required />
+                        <input type="text" name="subcategory_Name" placeholder="Enter Subcategory Name" className="input input-bordered" required />
                     </div>
 
                     <div className="form-control md:w-1/2">
@@ -82,23 +86,23 @@ const AddCraft = () => {
                         <input type="text" name="short_description" placeholder="Enter Short Description" className="input input-bordered" required />
                     </div>
                 </div>
-                {/* 333333333333333333333333333333333 */}
+                {/* section - 3 */}
                 <div className="md:flex md:gap-5 md:py-3">
                     <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text">Price</span>
                         </label>
-                        <input type="text" name="price" placeholder="Enter Price (Taka)" className="input input-bordered" required />
+                        <input type="text" name="price" placeholder="Enter Price" className="input input-bordered" required />
                     </div>
 
                     <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text">Processing Time</span>
                         </label>
-                        <input type="number" name="processing_time" placeholder="Enter Processing Time (Hours)" className="input input-bordered" required />
+                        <input type="number" name="processing_time" placeholder="Enter Processing Time" className="input input-bordered" required />
                     </div>
                 </div>
-                {/* 44444444444444444444444444444 */}
+                {/* section - 4 */}
                 <div className="md:flex md:gap-5 md:py-3">
 
                     <label className="form-control md:w-1/2">
@@ -137,7 +141,7 @@ const AddCraft = () => {
                         </select>
                     </label>
                 </div>
-                {/* 55555555555555555555555 */}
+                {/* section - 5 */}
                 <div className="md:flex md:gap-5 md:py-3">
                     <div className="form-control md:w-1/2">
                         <label className="label">

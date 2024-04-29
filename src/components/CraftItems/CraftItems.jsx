@@ -16,7 +16,7 @@ const CraftItems = () => {
                 <div className="overflow-x-visible mb-12 bg-base-300 rounded-xl md:p-10">
                     <table className="table">
                         {/* head */}
-                        <thead>
+                        <thead className="md:text-xl">
                             <tr>
                                 <th className="text-center">Craft Name</th>
                                 <th>Rating</th>

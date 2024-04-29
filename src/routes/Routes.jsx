@@ -17,12 +17,12 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/crafts')
+                loader: () => fetch('https://assignment-10-art-craft-server-f1u5cjdxy.vercel.app/crafts')
             },
             {
                 path: "/details/:id",
                 element: <CraftDetails></CraftDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/crafts/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-10-art-craft-server-f1u5cjdxy.vercel.app/crafts/${params.id}`)
             },
             {
                 path: "/login",

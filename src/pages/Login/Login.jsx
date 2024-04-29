@@ -3,7 +3,7 @@ import { AiOutlineLogin } from "react-icons/ai";
 import useAuth from "../../hooks/useAuth";
 import GithubLogin from "./GithubLogin";
 import GoogleLogin from "./GoogleLogin";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 
@@ -26,10 +26,12 @@ const Login = () => {
         signInUser(email, password)
             .then((result) => {
                 console.log(result.user);
+                toast.success('Logged in successfully!')
                 navigate(location?.state ? location.state : '/');
             })
             .catch((error) => {
                 console.error(error)
+                toast.error(error.message);
             })
     }
 

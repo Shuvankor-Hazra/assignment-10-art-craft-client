@@ -9,7 +9,7 @@ const About = () => {
     return (
         <div className="pb-6 pt-12">
             <Helmet>
-                <title>Real state | About</title>
+                <title>Art & craft | Home</title>
             </Helmet>
             <div className="text-center my-10">
                 <h2 className="text-2xl md:text-3xl font-bold ">About Us</h2>

@@ -11,7 +11,7 @@ const CraftDetails = () => {
     return (
         <div>
             <Helmet>
-                <title>Real state | Details</title>
+                <title>Art & craft | Details</title>
             </Helmet>
             <div className="text-center mb-10">
                 <h2 className="text-2xl md:text-3xl font-bold">Details</h2>

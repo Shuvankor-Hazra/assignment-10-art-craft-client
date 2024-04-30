@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { FaAnglesRight } from "react-icons/fa6";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -8,9 +7,6 @@ import aboutImg from "../../assets/artAbout.jpg"
 const About = () => {
     return (
         <div className="pb-6 pt-12">
-            <Helmet>
-                <title>Art & craft | Home</title>
-            </Helmet>
             <div className="text-center my-10">
                 <h2 className="text-2xl md:text-3xl font-bold ">About Us</h2>
                 <p className="md:text-xl md:w-2/3 mx-auto py-3 text-gray-500">Expressing imagination through diverse mediums, fostering creativity, innovation, and personal fulfillment in handmade creations.</p>

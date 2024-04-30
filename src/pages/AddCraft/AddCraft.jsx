@@ -21,10 +21,11 @@ const AddCraft = () => {
         const stockStatus = form.stockStatus.value;
         const userEmail = form.user_email.value;
         const userName = form.user_name.value;
+
         const newCraft = { itemName: itemName, photo: photo, subcategoryName: subcategoryName, shortDescription: shortDescription, price: price, processingTime: processingTime, rating: rating, customization: customization, stockStatus: stockStatus, userEmail: userEmail, userName: userName };
         console.log(newCraft);
 
-        fetch('https://assignment-10-art-craft-server-f1u5cjdxy.vercel.app/crafts', {
+        fetch('https://assignment-10-art-craft-server.vercel.app/crafts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

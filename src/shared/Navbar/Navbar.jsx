@@ -31,7 +31,7 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost text-2xl lg:text-4xl font-bold gap-0 p-0 hover:bg-white"><span className="text-2xl lg:text-4xl font-extrabold">Art&Craft</span>{"'"}s</Link>
+                <Link to='/' className="btn btn-ghost text-2xl lg:text-4xl font-extrabold gap-0 p-0 hover:bg-white">Art&Craft{"'"}s</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="flex gap-2 px-1 text-xl font-bold text-gray-500">

@@ -1,13 +1,20 @@
-import Swal from 'sweetalert2'
-import useAuth from '../../hooks/useAuth';
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet";
+import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
+import { useLoaderData } from "react-router-dom";
 
-const AddCraft = () => {
+
+
+
+const Update = () => {
 
     const { user } = useAuth();
-    console.log(user);
 
-    const handleAddCraft = (e) => {
+    const crafts = useLoaderData();
+
+    const { _id, itemName, photo, subcategoryName, shortDescription, price, processingTime, rating, customization, stockStatus } = crafts;
+
+    const handleUpdateCraft = (e) => {
         e.preventDefault();
         const form = e.target;
         const itemName = form.item_name.value;
@@ -21,25 +28,24 @@ const AddCraft = () => {
         const stockStatus = form.stockStatus.value;
         const userEmail = form.user_email.value;
         const userName = form.user_name.value;
+        const updatedCraft = { itemName: itemName, photo: photo, subcategoryName: subcategoryName, shortDescription: shortDescription, price: price, processingTime: processingTime, rating: rating, customization: customization, stockStatus: stockStatus, userEmail: userEmail, userName: userName };
+        console.log(updatedCraft);
 
-        const newCraft = { itemName: itemName, photo: photo, subcategoryName: subcategoryName, shortDescription: shortDescription, price: price, processingTime: processingTime, rating: rating, customization: customization, stockStatus: stockStatus, userEmail: userEmail, userName: userName };
-        console.log(newCraft);
-
-        fetch('https://assignment-10-art-craft-server.vercel.app/crafts', {
-            method: 'POST',
+        fetch(`https://assignment-10-art-craft-server.vercel.app/crafts/${_id}`, {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newCraft)
+            body: JSON.stringify(updatedCraft)
         })
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
                 form.reset();
-                if (data.insertedId) {
+                if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Craft added successfully',
+                        text: 'Craft Update successfully',
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
@@ -50,40 +56,34 @@ const AddCraft = () => {
     return (
         <div className=" mx-auto bg-[#F4F3F0] mb-10 md:mb-20 p-5 md:p-10 rounded-xl">
             <Helmet>
-                <title>Art & craft | Add craft</title>
+                <title>Art & craft | Update</title>
             </Helmet>
-            <h1 className='text-2xl md:text-4xl font-bold text-center pb-3'>Add New Craft</h1>
+            <h1 className='text-2xl md:text-4xl font-bold text-center pb-3'>Update Craft</h1>
 
-            <form onSubmit={handleAddCraft}>
+            <form onSubmit={handleUpdateCraft}>
                 {/* section - 1 */}
                 <div className="md:flex md:gap-5 md:py-3">
                     <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text">Item Name</span>
                         </label>
-                        <input type="text" name="item_name" placeholder="Enter Coffee Name" className="input input-bordered" required />
+                        <input defaultValue={itemName} type="text" name="item_name" placeholder="Enter Coffee Name" className="input input-bordered" required />
                     </div>
 
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span className="label-text">Photo URL</span>
+                            <span className="label-text">Photo Url</span>
                         </label>
-                        <input type="text" name="photo" placeholder="Enter Photo URL" className="input input-bordered" required />
+                        <input defaultValue={photo} type="text" name="photo" placeholder="Enter Photo URL" className="input input-bordered" required />
                     </div>
                 </div>
                 {/* section - 2 */}
                 <div className="md:flex md:gap-5 md:py-3">
-                    {/* <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text">Subcategory Name</span>
-                        </label>
-                        <input type="text" name="subcategory_Name" placeholder="Enter Subcategory Name" className="input input-bordered" required />
-                    </div> */}
                     <label className="form-control md:w-1/2">
                         <div className="label">
                             <span className="label-text">Subcategory Name</span>
                         </div>
-                        <select name='subcategory_Name' className="select select-bordered">
+                        <select defaultValue={subcategoryName} name='subcategory_Name' className="select select-bordered">
                             <option disabled selected>Subcategory Name</option>
                             <option>Clay-made pottery</option>
                             <option>Stoneware</option>
@@ -98,7 +98,7 @@ const AddCraft = () => {
                         <label className="label">
                             <span className="label-text">Short Description</span>
                         </label>
-                        <input type="text" name="short_description" placeholder="Enter Short Description" className="input input-bordered" required />
+                        <input defaultValue={shortDescription} type="text" name="short_description" placeholder="Enter Short Description" className="input input-bordered" required />
                     </div>
                 </div>
                 {/* section - 3 */}
@@ -107,14 +107,14 @@ const AddCraft = () => {
                         <label className="label">
                             <span className="label-text">Price</span>
                         </label>
-                        <input type="text" name="price" placeholder="Enter Price" className="input input-bordered" required />
+                        <input defaultValue={price} type="text" name="price" placeholder="Enter Price" className="input input-bordered" required />
                     </div>
 
                     <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text">Processing Time</span>
                         </label>
-                        <input type="number" name="processing_time" placeholder="Enter Processing Time" className="input input-bordered" required />
+                        <input defaultValue={processingTime} type="number" name="processing_time" placeholder="Enter Processing Time" className="input input-bordered" required />
                     </div>
                 </div>
                 {/* section - 4 */}
@@ -124,7 +124,7 @@ const AddCraft = () => {
                         <div className="label">
                             <span className="label-text">Rating</span>
                         </div>
-                        <select name='rating' className="select select-bordered">
+                        <select defaultValue={rating} name='rating' className="select select-bordered">
                             <option disabled selected>Rating</option>
                             <option>1</option>
                             <option>2</option>
@@ -138,7 +138,7 @@ const AddCraft = () => {
                         <div className="label">
                             <span className="label-text">Customization</span>
                         </div>
-                        <select name='customization' className="select select-bordered">
+                        <select defaultValue={customization} name='customization' className="select select-bordered">
                             <option disabled selected>Customization</option>
                             <option>Yes</option>
                             <option>No</option>
@@ -149,7 +149,7 @@ const AddCraft = () => {
                         <div className="label">
                             <span className="label-text">Stock Status</span>
                         </div>
-                        <select name='stockStatus' className="select select-bordered">
+                        <select defaultValue={stockStatus} name='stockStatus' className="select select-bordered">
                             <option disabled selected>Stock Status</option>
                             <option>In stock</option>
                             <option>Made to Order</option>
@@ -173,11 +173,11 @@ const AddCraft = () => {
                     </div>
                 </div>
                 <div className="form-control mt-6">
-                    <button className="btn bg-[#D2B48C]">ADD CRAFT</button>
+                    <button className="btn bg-[#D2B48C]">UPDATE CRAFT</button>
                 </div>
             </form>
         </div>
     );
 };
 
-export default AddCraft;
+export default Update;

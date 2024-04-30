@@ -51,18 +51,12 @@ const Navbar = () => {
                                     </div>
                                 </div>
                             </div>
-                            <Link onClick={handleSIgnOut} className="btn bg-[#D2B48C] btn-sm md:btn-md md:px-10 md:text-lg md:font-bold">Log Out</Link>
+                            <Link onClick={handleSIgnOut} className="btn bg-[#D2B48C] btn-sm md:btn-md md:px-8 md:text-lg md:font-bold">Log Out</Link>
                         </div> :
                         
-                        <div className="flex items-center gap-3">
-                            <div className="dropdown dropdown-end">
-                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip" data-tip={user?.displayName || 'Name not found'}>
-                                    <div className="w-10 md:w-12 rounded-full ">
-                                        <img alt="Profile" src={user?.photoURL || userDefaultPic} />
-                                    </div>
-                                </div>
-                            </div>
-                            <Link to="/login" className="btn bg-[#D2B48C] btn-sm md:btn-md  md:px-10 md:text-lg md:font-bold">Log In</Link>
+                        <div className="flex items-center gap-1">
+                            <Link to="/login" className="btn bg-[#D2B48C] btn-sm md:btn-md md:px-8 md:text-lg md:font-bold">Log In</Link>
+                            <Link to="/register" className="btn bg-[#D2B48C] btn-sm md:btn-md md:px-8 md:text-lg md:font-bold">Register</Link>
                         </div>
                 }
 
